@@ -1,0 +1,16 @@
+version : '2.2'
+
+services:
+  ghazy-challenge1:
+    build: ./challenge
+    image: abdoghazy:challenge1
+    environment:
+      FLAG: Ghazy{test_flag}
+    ports:
+      - 8001:80
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail http://127.0.0.1"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+
